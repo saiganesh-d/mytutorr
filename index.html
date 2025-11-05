@@ -3,336 +3,582 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NyTutorr Academy - VLSI & Electronics Expert</title>
-   <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Inter font from Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>mytutorr - Master Electronics & VLSI Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F9FAFB;
+            color: #4B5563;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: #1E3A8A;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #3B82F6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background-color: #3B82F6;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: #2563EB;
+            transform: translateY(-2px);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .about h2 {
+            color: #111827;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature {
+            background-color: #F9FAFB;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #3B82F6;
+        }
+
+        .feature h3 {
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Courses Section */
+        .courses {
+            padding: 80px 0;
+            background-color: #F9FAFB;
+        }
+
+        .courses h2 {
+            color: #111827;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .course-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            gap: 1rem;
+        }
+
+        .tab-button {
+            background-color: white;
+            color: #4B5563;
+            padding: 12px 24px;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .tab-button.active {
+            background-color: #1E3A8A;
+            color: white;
+            border-color: #1E3A8A;
+        }
+
+        .tab-button:hover {
+            border-color: #3B82F6;
+            color: #3B82F6;
+        }
+
+        .tab-button.active:hover {
+            background-color: #1E3A8A;
+            color: white;
+        }
+
+        .course-content {
+            display: none;
+        }
+
+        .course-content.active {
+            display: block;
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .subject-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .subject-card h3 {
+            color: #111827;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .subject-card ul {
+            list-style: none;
+        }
+
+        .subject-card li {
+            padding: 0.3rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .subject-card li:before {
+            content: "✓";
+            color: #3B82F6;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .contact h2 {
+            color: #111827;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .contact-item {
+            background-color: #F9FAFB;
+            padding: 2rem;
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h3 {
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item a {
+            color: #3B82F6;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111827;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .course-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-button {
+                width: 200px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <nav>
-            <div class="logo">NyTutorr</div>
+        <nav class="container">
+            <div class="logo">mytutorr</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#courses">Courses</a></li>
-                <li><a href="#skills">Expertise</a></li>
-                <li><a href="#testimonials">Reviews</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>Master Electronics & VLSI Design</h1>
-                <p>Expert instruction in VLSI, Signal Processing, and Advanced Electronics. Transform your career with industry-focused learning and hands-on projects.</p>
-                <div class="cta-buttons">
-                    <a href="#courses" class="btn btn-primary">Explore Courses</a>
-                    <a href="#contact" class="btn btn-secondary">Get Started</a>
-                </div>
-            </div>
-        </div>
-        <div class="circuit-bg">
-            <svg width="400" height="400" viewBox="0 0 400 400">
-                <defs>
-                    <linearGradient id="circuitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.3" />
-                        <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.1" />
-                    </linearGradient>
-                </defs>
-                <path d="M50 50 L350 50 L350 350 L50 350 Z" fill="none" stroke="url(#circuitGrad)" stroke-width="2"/>
-                <circle cx="100" cy="100" r="20" fill="url(#circuitGrad)"/>
-                <circle cx="300" cy="100" r="20" fill="url(#circuitGrad)"/>
-                <circle cx="100" cy="300" r="20" fill="url(#circuitGrad)"/>
-                <circle cx="300" cy="300" r="20" fill="url(#circuitGrad)"/>
-                <path d="M100 100 L300 100 M200 100 L200 300 M100 300 L300 300" stroke="url(#circuitGrad)" stroke-width="1"/>
-            </svg>
+            <h1>Master Electronics & VLSI Design</h1>
+            <p>Expert instruction in VLSI, Signal Processing, and Advanced Electronics.<br>
+            Transform your career with industry-focused learning and hands-on projects.</p>
+            <a href="#contact" class="cta-button">Start Learning Today</a>
         </div>
     </section>
 
+    <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <div class="about-content animate-on-scroll">
+            <h2>Why Choose mytutorr?</h2>
+            <div class="about-content">
                 <div class="about-text">
-                    <h2>Leading Electronics Education Expert</h2>
-                    <p>With over a decade of experience in electronics engineering and VLSI design, I specialize in making complex concepts accessible and practical for students and professionals alike.</p>
-                    <p>My teaching methodology combines theoretical foundations with hands-on laboratory work, ensuring students gain both conceptual understanding and practical skills that are immediately applicable in the industry.</p>
-                    <p>From basic circuit analysis to advanced VLSI design flows, I guide students through a comprehensive learning journey that prepares them for successful careers in electronics and semiconductor industries.</p>
+                    <p>At mytutorr, we specialize in delivering world-class education in Electronics and VLSI Design. Our comprehensive curriculum covers ECE, EEE, and CSE subjects with a focus on practical, industry-relevant skills.</p>
+                    
+                    <p>With years of experience in the semiconductor industry and academic excellence, we provide personalized tutoring that bridges the gap between theoretical knowledge and real-world applications.</p>
                 </div>
-                <div class="stats">
-                    <div class="stat-item">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">Students Taught</div>
+                <div class="features">
+                    <div class="feature">
+                        <h3>Expert Instruction</h3>
+                        <p>Learn from industry professionals with deep expertise in VLSI and electronics design.</p>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">12+</div>
-                        <div class="stat-label">Years Experience</div>
+                    <div class="feature">
+                        <h3>Hands-on Projects</h3>
+                        <p>Build real-world projects that enhance your portfolio and career prospects.</p>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Industry Projects</div>
+                    <div class="feature">
+                        <h3>Industry Focus</h3>
+                        <p>Curriculum designed to meet current industry demands and emerging technologies.</p>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">95%</div>
-                        <div class="stat-label">Success Rate</div>
+                    <div class="feature">
+                        <h3>Personalized Learning</h3>
+                        <p>Tailored instruction to match your learning pace and career goals.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="courses" class="py-16 px-4 bg-gray-50 rounded-lg shadow-md mx-auto max-w-6xl mb-12 courses">
-        <div class="container mx-auto">
-            <h3 class="text-4xl font-extrabold text-heading text-center mb-10 relative pb-4">
-                Courses Offered
-                <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 header-bg rounded-full"></span>
-            </h3>
-
-            <!-- Tabs Navigation -->
-            <div class="flex flex-col md:flex-row justify-center mb-8 bg-white p-2 rounded-lg shadow-sm">
-                <button class="tab-button flex-1 px-6 py-3 text-lg font-semibold text-gray-700 rounded-md hover:bg-gray-100 transition duration-200 focus:outline-none active-tab" data-tab="ece">
-                    ECE Subjects
-                </button>
-                <button class="tab-button flex-1 px-6 py-3 text-lg font-semibold text-gray-700 rounded-md hover:bg-gray-100 transition duration-200 focus:outline-none" data-tab="eee">
-                    EEE Subjects
-                </button>
-                <button class="tab-button flex-1 px-6 py-3 text-lg font-semibold text-gray-700 rounded-md hover:bg-gray-100 transition duration-200 focus:outline-none" data-tab="cse">
-                    CSE Subjects
-                </button>
-            </div>
-
-            <!-- Tab Content -->
-            <div id="ece-content" class="tab-content bg-white p-8 rounded-lg shadow-md grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- ECE Subjects -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <h4 class="text-xl font-bold text-heading mb-2">VLSI Design</h4>
-                    <p class="text-gray-600">Master the fundamentals of Very Large Scale Integration design, from schematic capture to layout and verification.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <h4 class="text-xl font-bold text-heading mb-2">Digital Signal Processing</h4>
-                    <p class="text-gray-600">Explore algorithms and techniques for processing digital signals, essential for modern communication and audio systems.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <h4 class="text-xl font-bold text-heading mb-2">Analog & Digital Communication</h4>
-                    <p class="text-gray-600">Understand the principles of transmitting information over various channels, both analog and digital.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <h4 class="text-xl font-bold text-heading mb-2">Embedded Systems</h4>
-                    <p class="text-gray-600">Learn to design and implement embedded systems, integrating hardware and software for specialized functions.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <h4 class="text-xl font-bold text-heading mb-2">Control Systems</h4>
-                    <p class="text-gray-600">Study the theory and application of feedback systems to control dynamic processes.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <h4 class="text-xl font-bold text-heading mb-2">Electromagnetics</h4>
-                    <p class="text-gray-600">Delve into the fundamental principles of electric and magnetic fields and their applications.</p>
-                </div>
-            </div>
-
-            <div id="eee-content" class="tab-content hidden bg-white p-8 rounded-lg shadow-md grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- EEE Subjects -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <h4 class="text-xl font-bold text-heading mb-2">Power Electronics</h4>
-                    <p class="text-gray-600">Focus on the application of solid-state electronics to the control and conversion of electric power.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <h4 class="text-xl font-bold text-heading mb-2">Electrical Machines</h4>
-                    <p class="text-gray-600">Study the theory, construction, and operation of various types of electrical machines like motors and generators.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <h4 class="text-xl font-bold text-heading mb-2">Power Systems</h4>
-                    <p class="text-gray-600">Understand the generation, transmission, and distribution of electrical power.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <h4 class="text-xl font-bold text-heading mb-2">Control Systems</h4>
-                    <p class="text-gray-600">Learn to design and analyze systems that regulate the behavior of other devices or systems.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <h4 class="text-xl font-bold text-heading mb-2">Basic Electrical Engineering</h4>
-                    <p class="text-gray-600">Foundational concepts of electrical circuits, networks, and basic principles of electricity.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <h4 class="text-xl font-bold text-heading mb-2">Renewable Energy Systems</h4>
-                    <p class="text-gray-600">Explore sustainable energy sources and technologies, including solar, wind, and hydro power.</p>
-                </div>
-            </div>
-
-            <div id="cse-content" class="tab-content hidden bg-white p-8 rounded-lg shadow-md grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- CSE Subjects -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <h4 class="text-xl font-bold text-heading mb-2">Data Structures & Algorithms</h4>
-                    <p class="text-gray-600">Fundamental concepts for efficient data organization and problem-solving in computer science.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <h4 class="text-xl font-bold text-heading mb-2">Operating Systems</h4>
-                    <p class="text-gray-600">Understand the core components and functions of operating systems, from process management to memory handling.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <h4 class="text-xl font-bold text-heading mb-2">Database Management Systems</h4>
-                    <p class="text-gray-600">Learn to design, implement, and manage relational and non-relational databases.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <h4 class="text-xl font-bold text-heading mb-2">Computer Networks</h4>
-                    <p class="text-gray-600">Explore the principles of networking, protocols, and the architecture of the internet.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <h4 class="text-xl font-bold text-heading mb-2">Web Development</h4>
-                    <p class="text-gray-600">Gain skills in front-end and back-end web development, building dynamic and interactive web applications.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <h4 class="text-xl font-bold text-heading mb-2">Machine Learning</h4>
-                    <p class="text-gray-600">Introduction to machine learning concepts, algorithms, and their applications in various domains.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="skills">
+    <!-- Courses Section -->
+    <section id="courses" class="courses">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">Areas of Expertise</h2>
-            <div class="skills-grid">
-                <div class="skill-item animate-on-scroll">
-                    <div class="skill-icon">🔧</div>
-                    <h3>Circuit Design</h3>
-                    <p>Analog and digital circuit design with emphasis on practical implementation and optimization.</p>
-                </div>
-                <div class="skill-item animate-on-scroll">
-                    <div class="skill-icon">📊</div>
-                    <h3>Signal Processing</h3>
-                    <p>Digital signal processing algorithms, filter design, and real-time implementation techniques.</p>
-                </div>
-                <div class="skill-item animate-on-scroll">
-                    <div class="skill-icon">🎛️</div>
-                    <h3>System Integration</h3>
-                    <p>Integration of complex electronic systems with focus on performance and reliability.</p>
-                </div>
-                <div class="skill-item animate-on-scroll">
-                    <div class="skill-icon">🔍</div>
-                    <h3>Testing & Validation</h3>
-                    <p>Comprehensive testing methodologies and validation techniques for electronic systems.</p>
-                </div>
-                <div class="skill-item animate-on-scroll">
-                    <div class="skill-icon">⚙️</div>
-                    <h3>Design Automation</h3>
-                    <p>CAD tools, simulation software, and automated design flow implementation.</p>
-                </div>
-                <div class="skill-item animate-on-scroll">
-                    <div class="skill-icon">📚</div>
-                    <h3>Research & Development</h3>
-                    <p>Cutting-edge research in emerging technologies and innovative solution development.</p>
+            <h2>Courses Offered</h2>
+            
+            <div class="course-tabs">
+                <button class="tab-button active" onclick="showCourse('ece')">ECE</button>
+                <button class="tab-button" onclick="showCourse('eee')">EEE</button>
+                <button class="tab-button" onclick="showCourse('cse')">CSE</button>
+            </div>
+
+            <!-- ECE Courses -->
+            <div id="ece" class="course-content active">
+                <div class="subjects-grid">
+                    <div class="subject-card">
+                        <h3>VLSI Design</h3>
+                        <ul>
+                            <li>Digital VLSI Design</li>
+                            <li>Analog VLSI Design</li>
+                            <li>CMOS Circuit Design</li>
+                            <li>Layout Design & Verification</li>
+                            <li>Low Power Design Techniques</li>
+                            <li>Memory Design</li>
+                        </ul>
+                    </div>
+                    <div class="subject-card">
+                        <h3>Signal Processing</h3>
+                        <ul>
+                            <li>Digital Signal Processing</li>
+                            <li>Image Processing</li>
+                            <li>Speech Processing</li>
+                            <li>Adaptive Signal Processing</li>
+                            <li>Multi-rate Signal Processing</li>
+                            <li>DSP Applications</li>
+                        </ul>
+                    </div>
+                    <div class="subject-card">
+                        <h3>Communication Systems</h3>
+                        <ul>
+                            <li>Analog Communications</li>
+                            <li>Digital Communications</li>
+                            <li>Wireless Communications</li>
+                            <li>Optical Communications</li>
+                            <li>Satellite Communications</li>
+                            <li>5G Technology</li>
+                        </ul>
+                    </div>
+                    <div class="subject-card">
+                        <h3>Microprocessors & Controllers</h3>
+                        <ul>
+                            <li>8085/8086 Microprocessors</li>
+                            <li>ARM Architecture</li>
+                            <li>8051 Microcontroller</li>
+                            <li>PIC Microcontrollers</li>
+                            <li>Embedded C Programming</li>
+                            <li>Real-time Systems</li>
+                        </ul>
+                    </div>
+                    <div class="subject-card">
+                        <h3>Embedded Systems</h3>
+                        <ul>
+                            <li>Programming for Embedded Systems</li>
+                            <li>Real-Time Operating Systems (RTOS)</li>
+                            <li>Computer Architecture</li>
+                            <li>Digital Electronics</li>
+                            <li>Memory Architecture</li>
+                            <li>Peripherals and Interfacing</li>
+                        </ul>
+                    </div>
+                    <div class="subject-card">
+                        <h3>Additional courses</h3>
+                        <ul>
+                            <li>Robotics Engineering</li>
+                            <li>Matlab training</li>
+                            <li>Xilinx</li>
+                            <li>pspice lt spice</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">Student Success Stories</h2>
-            <div class="testimonial-slider">
-                <div class="testimonial-card animate-on-scroll">
-                    <div class="testimonial-text">
-                        The VLSI course completely transformed my understanding of chip design. The hands-on approach with industry tools made all the difference in landing my dream job at a semiconductor company.
+            <!-- EEE Courses -->
+            <div id="eee" class="course-content">
+                <div class="subjects-grid">
+                    <div class="subject-card">
+                        <h3>Power Systems</h3>
+                        <ul>
+                            <li>Power System Analysis</li>
+                            <li>Power Generation</li>
+                            <li>Transmission & Distribution</li>
+                            <li>Power System Protection</li>
+                            <li>FACTS Devices</li>
+                            <li>Smart Grid Technology</li>
+                        </ul>
                     </div>
-                    <div class="testimonial-author">- Sai Ganesh, VLSI Engineer</div>
-                </div>
-                <div class="testimonial-card animate-on-scroll">
-                    <div class="testimonial-text">
-                        Exceptional teaching methodology! The complex concepts of signal processing were explained with such clarity that I could immediately apply them in my research project.
+                    <div class="subject-card">
+                        <h3>Power Electronics</h3>
+                        <ul>
+                            <li>Power Semiconductor Devices</li>
+                            <li>AC/DC Converters</li>
+                            <li>DC/DC Converters</li>
+                            <li>Inverters & UPS Systems</li>
+                            <li>Motor Drives</li>
+                            <li>Renewable Energy Systems</li>
+                        </ul>
                     </div>
-                    <div class="testimonial-author">- Abdul Md, PhD Student</div>
-                </div>
-                <div class="testimonial-card animate-on-scroll">
-                    <div class="testimonial-text">
-                        The project-based learning approach was incredible. I built a complete digital system from scratch and gained confidence to tackle real-world engineering challenges.
+                    <div class="subject-card">
+                        <h3>Control Systems</h3>
+                        <ul>
+                            <li>Classical Control Theory</li>
+                            <li>Modern Control Systems</li>
+                            <li>Digital Control Systems</li>
+                            <li>Optimal Control</li>
+                            <li>Robust Control</li>
+                            <li>Process Control</li>
+                        </ul>
                     </div>
-                    <div class="testimonial-author">- Conrad Ulrich, Electronics Engineer</div>
+                    <div class="subject-card">
+                        <h3>Electric Machines</h3>
+                        <ul>
+                            <li>DC Machines</li>
+                            <li>Transformers</li>
+                            <li>Induction Motors</li>
+                            <li>Synchronous Machines</li>
+                            <li>Special Machines</li>
+                            <li>Machine Design</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">Start Your Learning Journey</h2>
-            <div class="contact-content">
-                <div class="contact-form animate-on-scroll">
-                    <!-- Formspree Form - Replace YOUR_FORM_ID with your actual Formspree form ID -->
-                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="course">Course Interest</label>
-                            <input type="text" id="course" name="course" placeholder="Which course interests you?">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Tell me about your learning goals..."></textarea>
-                        </div>
-                        <!-- Hidden input for spam protection -->
-                        <input type="hidden" name="_subject" value="New contact from NyTutorr website">
-                        <input type="hidden" name="_next" value="https://mytutorr.com/#contact">
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-                    </form>
-                </div>
-                <div class="contact-info animate-on-scroll">
-                    <h3>Get in Touch</h3>
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div>
-                            <strong>Email</strong><br>
-                            hemaprasanthnaidu@gmail.com
-                        </div>
+            <!-- CSE Courses -->
+            <div id="cse" class="course-content">
+                <div class="subjects-grid">
+                    <div class="subject-card">
+                        <h3>Digital System Design</h3>
+                        <ul>
+                            <li>Digital Logic Design</li>
+                            <li>VHDL/Verilog Programming</li>
+                            <li>FPGA Design</li>
+                            <li>Computer Architecture</li>
+                            <li>Processor Design</li>
+                            <li>Hardware-Software Co-design</li>
+                        </ul>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📱</div>
-                        <div>
-                            <strong>Phone</strong><br>
-                            +91 9502324560
-                        </div>
+                    <!-- <div class="subject-card">
+                        <h3>Embedded Systems</h3>
+                        <ul>
+                            <li>Embedded C/C++</li>
+                            <li>Real-time Operating Systems</li>
+                            <li>IoT Applications</li>
+                            <li>Sensor Interfacing</li>
+                            <li>Wireless Protocols</li>
+                            <li>System Integration</li>
+                        </ul>
+                    </div> -->
+                    <div class="subject-card">
+                        <h3>Computer Networks</h3>
+                        <ul>
+                            <li>Network Protocols</li>
+                            <li>Network Security</li>
+                            <li>Wireless Networks</li>
+                            <li>Network Programming</li>
+                            <li>Software Defined Networks</li>
+                            <li>Cloud Computing</li>
+                        </ul>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div>
-                            <strong>Location</strong><br>
-                            Vizag, Andhra Prades, India
-                        </div>
+                    <div class="subject-card">
+                        <h3>Programming & Algorithms</h3>
+                        <ul>
+                            <li>Data Structures</li>
+                            <li>Algorithm Analysis</li>
+                            <li>Object-Oriented Programming</li>
+                            <li>Database Management</li>
+                            <li>Software Engineering</li>
+                            <li>Machine Learning Basics</li>
+                        </ul>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">⏰</div>
-                        <div>
-                            <strong>Availability</strong><br>
-                            Mon-Sat: 9:00 AM - 7:00 PM
-                        </div>
-                    </div>
-                    <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 15px;">
-                        <h4 style="color: #667eea; margin-bottom: 1rem;">Why Choose NyTutorr?</h4>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 0.5rem 0; padding-left: 2rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: #667eea;">✓</span>
-                                Industry-experienced instructor
-                            </li>
-                            <li style="padding: 0.5rem 0; padding-left: 2rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: #667eea;">✓</span>
-                                Hands-on practical approach
-                            </li>
-                            <li style="padding: 0.5rem 0; padding-left: 2rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: #667eea;">✓</span>
-                                Flexible scheduling options
-                            </li>
-                            <li style="padding: 0.5rem 0; padding-left: 2rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: #667eea;">✓</span>
-                                Career guidance included
-                            </li>
+                     <div class="subject-card">
+                        <h3>Python Full Stack</h3>
+                        <ul>
+                            <li>Python Basics</li>
+                            <li>Html, CSS, JS</li>
+                            <li>Django/Flask</li>
+                            <li>Restfull API</li>
+                            <li>Docker</li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -340,60 +586,113 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+
+            <!-- Netlify Contact Form -->
+            <div style="max-width: 600px; margin: 0 auto 3rem; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <!-- Hidden fields for Netlify -->
+                    <input type="hidden" name="form-name" value="contact">
+
+                    <!-- Honeypot for spam protection -->
+                    <p style="display: none;">
+                        <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                    </p>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="name" style="display: block; margin-bottom: 0.5rem; color: #111827; font-weight: 500;">Full Name <span style="color: #EF4444;">*</span></label>
+                        <input type="text" id="name" name="name" required style="width: 100%; padding: 0.75rem; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s;" onfocus="this.style.borderColor='#3B82F6'" onblur="this.style.borderColor='#E5E7EB'">
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="email" style="display: block; margin-bottom: 0.5rem; color: #111827; font-weight: 500;">Email Address <span style="color: #EF4444;">*</span></label>
+                        <input type="email" id="email" name="email" required style="width: 100%; padding: 0.75rem; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s;" onfocus="this.style.borderColor='#3B82F6'" onblur="this.style.borderColor='#E5E7EB'">
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="phone" style="display: block; margin-bottom: 0.5rem; color: #111827; font-weight: 500;">Phone Number <span style="color: #EF4444;">*</span></label>
+                        <input type="tel" id="phone" name="phone" required style="width: 100%; padding: 0.75rem; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s;" onfocus="this.style.borderColor='#3B82F6'" onblur="this.style.borderColor='#E5E7EB'">
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="course" style="display: block; margin-bottom: 0.5rem; color: #111827; font-weight: 500;">Course Interest</label>
+                        <select id="course" name="course" style="width: 100%; padding: 0.75rem; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s; background: white;" onfocus="this.style.borderColor='#3B82F6'" onblur="this.style.borderColor='#E5E7EB'">
+                            <option value="">Select a course...</option>
+                            <option value="ECE - VLSI Design">ECE - VLSI Design</option>
+                            <option value="ECE - Signal Processing">ECE - Signal Processing</option>
+                            <option value="ECE - Communication Systems">ECE - Communication Systems</option>
+                            <option value="ECE - Microprocessors">ECE - Microprocessors & Controllers</option>
+                            <option value="ECE - Embedded Systems">ECE - Embedded Systems</option>
+                            <option value="EEE - Power Systems">EEE - Power Systems</option>
+                            <option value="EEE - Power Electronics">EEE - Power Electronics</option>
+                            <option value="EEE - Control Systems">EEE - Control Systems</option>
+                            <option value="CSE - Digital System Design">CSE - Digital System Design</option>
+                            <option value="CSE - Computer Networks">CSE - Computer Networks</option>
+                            <option value="CSE - Python Full Stack">CSE - Python Full Stack</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="message" style="display: block; margin-bottom: 0.5rem; color: #111827; font-weight: 500;">Message</label>
+                        <textarea id="message" name="message" rows="4" style="width: 100%; padding: 0.75rem; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 1rem; resize: vertical; transition: border-color 0.3s;" onfocus="this.style.borderColor='#3B82F6'" onblur="this.style.borderColor='#E5E7EB'" placeholder="Tell us about your learning goals..."></textarea>
+                    </div>
+
+                    <button type="submit" style="width: 100%; background-color: #3B82F6; color: white; padding: 0.875rem 1.5rem; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.backgroundColor='#2563EB'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#3B82F6'; this.style.transform='translateY(0)'">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:hemaprasanthnaidu@gmail.com">hemaprasanthnaidu@gmail.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <h3>Phone</h3>
+                    <p><a href="tel:+919502324560">+91 9502324560</a></p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <h3>Location</h3>
+                    <p>Vizag, Andhra Pradesh, India</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 NyTutorr Academy. Empowering the next generation of electronics engineers.</p>
-            <p style="margin-top: 1rem; opacity: 0.7; font-size: 0.9rem;">
-                Specialized in VLSI Design | Signal Processing | Advanced Electronics
-            </p>
+            <p>&copy; 2025 mytutorr. All rights reserved. | Master Electronics & VLSI Design</p>
         </div>
     </footer>
-<script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                // Close mobile menu if open
-                const mobileMenu = document.getElementById('mobile-menu');
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
 
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Tab functionality for Courses Offered
-        document.addEventListener('DOMContentLoaded', () => {
-            const tabButtons = document.querySelectorAll('.tab-button');
-            const tabContents = document.querySelectorAll('.tab-content');
-
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Remove active class from all buttons and hide all content
-                    tabButtons.forEach(btn => btn.classList.remove('active-tab'));
-                    tabContents.forEach(content => content.classList.add('hidden'));
-
-                    // Add active class to clicked button
-                    button.classList.add('active-tab');
-
-                    // Show corresponding content
-                    const targetTab = button.dataset.tab;
-                    document.getElementById(`${targetTab}-content`).classList.remove('hidden');
-                });
-            });
-        });
-    </script>
     <script>
+        function showCourse(course) {
+            // Hide all course contents
+            const contents = document.querySelectorAll('.course-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            
+            // Show selected course content
+            document.getElementById(course).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -406,199 +705,6 @@
                     });
                 }
             });
-        });
-
-        // Header background change on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgb(33, 32, 32)';
-            } else {
-                header.style.background = 'rgb(33, 32, 32)';
-            }
-        });
-
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animated');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Form submission handler - now handled by Formspree
-        // The form will submit directly to Formspree and show a confirmation page
-
-        // Add floating particles animation
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.style.cssText = `
-                position: fixed;
-                width: 4px;
-                height: 4px;
-                background: #111827;
-                border-radius: 50%;
-                pointer-events: none;
-                z-index: -1;
-                opacity: 0.3;
-                animation: float-particle 15s linear infinite;
-            `;
-            
-            particle.style.left = Math.random() * 100 + 'vw';
-            particle.style.animationDelay = Math.random() * 15 + 's';
-            
-            document.body.appendChild(particle);
-            
-            setTimeout(() => {
-                particle.remove();
-            }, 15000);
-        }
-
-        // Create particles periodically
-        setInterval(createParticle, 3000);
-
-        // Add CSS for particle animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes float-particle {
-                from {
-                    transform: translateY(100vh) rotate(0deg);
-                    opacity: 0;
-                }
-                10% {
-                    opacity: 0.3;
-                }
-                90% {
-                    opacity: 0.3;
-                }
-                to {
-                    transform: translateY(-100px) rotate(360deg);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Add typing effect to hero text
-        function typeWriter(element, text, speed = 50) {
-            let i = 0;
-            element.innerHTML = '';
-            
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            
-            type();
-        }
-
-        // Initialize typing effect when page loads
-        window.addEventListener('load', () => {
-            const heroTitle = document.querySelector('.hero h1');
-            const originalText = heroTitle.textContent;
-            setTimeout(() => {
-                typeWriter(heroTitle, originalText, 100);
-            }, 1000);
-        });
-
-        // Add interactive hover effect to course cards
-        document.querySelectorAll('.course-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-15px) rotateX(5deg)';
-                this.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) rotateX(0deg)';
-            });
-        });
-
-        // Add ripple effect to buttons
-        document.querySelectorAll('.btn').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.cssText = `
-                    position: absolute;
-                    width: ${size}px;
-                    height: ${size}px;
-                    left: ${x}px;
-                    top: ${y}px;
-                    background: rgba(255, 255, 255, 0.3);
-                    border-radius: 50%;
-                    transform: scale(0);
-                    animation: ripple 0.6s linear;
-                    pointer-events: none;
-                `;
-                
-                this.style.position = 'relative';
-                this.style.overflow = 'hidden';
-                this.appendChild(ripple);
-                
-                setTimeout(() => ripple.remove(), 600);
-            });
-        });
-
-        // Add ripple animation CSS
-        const rippleStyle = document.createElement('style');
-        rippleStyle.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(2);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(rippleStyle);
-
-        // Add dynamic stats counter
-        function animateValue(element, start, end, duration) {
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                const current = Math.floor(progress * (end - start) + start);
-                element.innerHTML = end.toString().includes('+') ? current + '+' : 
-                                   end.toString().includes('%') ? current + '%' : current;
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                }
-            };
-            window.requestAnimationFrame(step);
-        }
-
-        // Animate stats when they come into view
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statNumber = entry.target.querySelector('.stat-number');
-                    const text = statNumber.textContent;
-                    const number = parseInt(text.replace(/\D/g, ''));
-                    animateValue(statNumber, 0, number, 2000);
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        });
-
-        document.querySelectorAll('.stat-item').forEach(item => {
-            statsObserver.observe(item);
         });
     </script>
 </body>

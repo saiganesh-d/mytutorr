@@ -1,0 +1,27 @@
+# Netlify Configuration for mytutorr.com
+
+[build]
+  # No build command needed for static site
+  publish = "."
+
+# Custom headers for security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Redirect www to non-www
+[[redirects]]
+  from = "https://www.mytutorr.com/*"
+  to = "https://mytutorr.com/:splat"
+  status = 301
+  force = true
+
+# Form settings
+[forms]
+  # Enable form notifications
+  [forms.settings]
+    # You'll configure email notifications in Netlify dashboard

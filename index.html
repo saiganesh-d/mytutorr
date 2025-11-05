@@ -341,6 +341,7 @@
     <form name="contact" netlify netlify-honeypot="bot-field" hidden>
         <input type="text" name="name">
         <input type="email" name="email">
+        <select name="countryCode"></select>
         <input type="tel" name="phone">
         <select name="course">
             <option value="">Select a course...</option>
@@ -624,8 +625,38 @@
                     </div>
 
                     <div style="margin-bottom: 1.5rem;">
-                        <label for="phone" style="display: block; margin-bottom: 0.5rem; color: #111827; font-weight: 500;">Phone Number <span style="color: #EF4444;">*</span></label>
-                        <input type="tel" id="phone" name="phone" required style="width: 100%; padding: 0.75rem; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s;" onfocus="this.style.borderColor='#3B82F6'" onblur="this.style.borderColor='#E5E7EB'">
+                        <label style="display: block; margin-bottom: 0.5rem; color: #111827; font-weight: 500;">Phone Number <span style="color: #EF4444;">*</span></label>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <select id="countryCode" name="countryCode" required style="width: 140px; padding: 0.75rem; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s; background: white;" onfocus="this.style.borderColor='#3B82F6'" onblur="this.style.borderColor='#E5E7EB'">
+                                <option value="+91">🇮🇳 +91 (India)</option>
+                                <option value="+1">🇺🇸 +1 (USA)</option>
+                                <option value="+44">🇬🇧 +44 (UK)</option>
+                                <option value="+61">🇦🇺 +61 (Australia)</option>
+                                <option value="+971">🇦🇪 +971 (UAE)</option>
+                                <option value="+65">🇸🇬 +65 (Singapore)</option>
+                                <option value="+49">🇩🇪 +49 (Germany)</option>
+                                <option value="+33">🇫🇷 +33 (France)</option>
+                                <option value="+86">🇨🇳 +86 (China)</option>
+                                <option value="+81">🇯🇵 +81 (Japan)</option>
+                                <option value="+82">🇰🇷 +82 (South Korea)</option>
+                                <option value="+7">🇷🇺 +7 (Russia)</option>
+                                <option value="+55">🇧🇷 +55 (Brazil)</option>
+                                <option value="+27">🇿🇦 +27 (South Africa)</option>
+                                <option value="+234">🇳🇬 +234 (Nigeria)</option>
+                                <option value="+254">🇰🇪 +254 (Kenya)</option>
+                                <option value="+880">🇧🇩 +880 (Bangladesh)</option>
+                                <option value="+92">🇵🇰 +92 (Pakistan)</option>
+                                <option value="+94">🇱🇰 +94 (Sri Lanka)</option>
+                                <option value="+977">🇳🇵 +977 (Nepal)</option>
+                                <option value="+60">🇲🇾 +60 (Malaysia)</option>
+                                <option value="+63">🇵🇭 +63 (Philippines)</option>
+                                <option value="+66">🇹🇭 +66 (Thailand)</option>
+                                <option value="+84">🇻🇳 +84 (Vietnam)</option>
+                                <option value="+62">🇮🇩 +62 (Indonesia)</option>
+                            </select>
+                            <input type="tel" id="phone" name="phone" required placeholder="Enter phone number" pattern="[0-9]{6,15}" title="Please enter 6-15 digits" style="flex: 1; padding: 0.75rem; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s;" onfocus="this.style.borderColor='#3B82F6'" onblur="this.style.borderColor='#E5E7EB'">
+                        </div>
+                        <small style="display: block; margin-top: 0.25rem; color: #6B7280; font-size: 0.875rem;">Enter your phone number without country code</small>
                     </div>
 
                     <div style="margin-bottom: 1.5rem;">

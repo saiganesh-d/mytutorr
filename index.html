@@ -337,6 +337,17 @@
     </style>
 </head>
 <body>
+    <!-- Hidden form for Netlify form detection -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name">
+        <input type="email" name="email">
+        <input type="tel" name="phone">
+        <select name="course">
+            <option value="">Select a course...</option>
+        </select>
+        <textarea name="message"></textarea>
+    </form>
+
     <!-- Header -->
     <header>
         <nav class="container">
@@ -593,7 +604,7 @@
 
             <!-- Netlify Contact Form -->
             <div style="max-width: 600px; margin: 0 auto 3rem; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
-                <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thank-you.html">
                     <!-- Hidden fields for Netlify -->
                     <input type="hidden" name="form-name" value="contact">
 

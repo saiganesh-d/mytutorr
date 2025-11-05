@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - mytutorr</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .checkmark {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .info-box p {
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #1E3A8A;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: #F3F4F6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+            }
+
+            .container {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="checkmark">✓</div>
+        <h1>Thank You!</h1>
+        <p>Your message has been successfully submitted.</p>
+
+        <div class="info-box">
+            <p><strong>We've received your inquiry!</strong></p>
+            <p>We'll review your message and get back to you within 24 hours.</p>
+            <p>Check your email for a confirmation.</p>
+        </div>
+
+        <p>In the meantime, feel free to explore our courses and learn more about what we offer.</p>
+
+        <a href="/" class="btn">Back to Home</a>
+
+        <div class="contact-info">
+            <p>Need immediate assistance?</p>
+            <p>Call us at: <strong>+91 9502324560</strong></p>
+            <p>Email: <strong>hemaprasanthnaidu@gmail.com</strong></p>
+        </div>
+    </div>
+
+    <script>
+        // Optional: Redirect to home after 10 seconds
+        // setTimeout(() => {
+        //     window.location.href = '/';
+        // }, 10000);
+    </script>
+</body>
+</html>
